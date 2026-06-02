@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method="POST")
+
+    div
+      label(for="nome") Nome:
+      input(
+        type="text"
+        name="nome"
+        value=company ? company.nome : ""
+        required
+      )
+
+    div
+      label(for="pais") País:
+      input(
+        type="text"
+        name="pais"
+        value=company ? company.pais : ""
+        required
+      )
+
+    div
+      label(for="fundacao") Fundação:
+      input(
+        type="number"
+        name="fundacao"
+        value=company ? company.fundacao : ""
+      )
+
+    br
+
+    button(type="submit")
+      | Salvar

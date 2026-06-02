@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= game.titulo
+
+  p
+    strong Gênero:
+    |  #{game.genero}
+
+  p
+    strong Ano:
+    |  #{game.anoLancamento}
+
+  p
+    strong Empresa:
+    |  #{game.empresa.nome}
+
+  a(href=`/jogos/${game._id}/editar`)
+    | Editar jogo

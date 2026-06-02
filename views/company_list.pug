@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+
+  a(href="/jogos/empresas/nova")
+    | Nova Empresa
+
+  ul
+    each company in companies
+
+      li
+        a(href=`/jogos/empresas/${company._id}`)
+          = company.nome
+
+        |  - #{company.pais}
+
+        br
+
+        a(href=`/jogos/empresas/${company._id}/editar`)
+          | Editar

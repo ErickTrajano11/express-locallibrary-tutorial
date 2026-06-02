@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method="POST")
+
+    div
+      label(for="titulo") Título:
+      input(
+        type="text"
+        name="titulo"
+        value=game ? game.titulo : ""
+        required
+      )
+
+    div
+      label(for="genero") Gênero:
+      input(
+        type="text"
+        name="genero"
+        value=game ? game.genero : ""
+        required
+      )
+
+    div
+      label(for="anoLancamento") Ano:
+      input(
+        type="number"
+        name="anoLancamento"
+        value=game ? game.anoLancamento : ""
+        required
+      )
+
+    div
+      label(for="empresa") Empresa:
+
+      select(name="empresa" required)
+
+        each empresa in empresas
+
+          if game && game.empresa == empresa._id
+            option(
+              value=empresa._id
+              selected
+            )= empresa.nome
+
+          else
+            option(value=empresa._id)= empresa.nome
+
+    br
+
+    button(type="submit") Salvar

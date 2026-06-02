@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+
+  a(href="/jogos/novo") Novo Jogo
+
+  ul
+    each game in games
+      li
+        a(href=`/jogos/${game._id}`)
+          = game.titulo
+        |  - #{game.genero}
+        |  - #{game.empresa.nome}
+
+        br
+
+        a(href=`/jogos/${game._id}/editar`) Editar

@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1= company.nome
+
+  p
+    strong País:
+    |  #{company.pais}
+
+  p
+    strong Fundação:
+    |  #{company.fundacao}
+
+  h2 Jogos da empresa
+
+  if games.length
+
+    ul
+      each game in games
+
+        li
+          a(href=`/jogos/${game._id}`)
+            = game.titulo
+
+  else
+
+    p Nenhum jogo cadastrado.
+
+  br
+
+  a(href=`/jogos/empresas/${company._id}/editar`)
+    | Editar Empresa
