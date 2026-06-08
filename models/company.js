@@ -8,6 +8,11 @@ const CompanySchema = new Schema({
     required: true,
     maxlength: 100,
   },
+  pais: {
+    type: String,
+    required: true,
+    maxlength: 100,
+  },
   fundacao: {
     type: Number,
   },

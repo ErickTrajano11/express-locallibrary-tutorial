@@ -7,6 +7,11 @@ const GameSchema = new Schema({
     type: String,
     required: true,
   },
+  genero: {
+    type: String,
+    required: true,
+    maxlength: 100,
+  },
   anoLancamento: {
     type: Number,
     required: true,

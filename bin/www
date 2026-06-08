@@ -5,8 +5,23 @@
  */
 
 var app = require("../app");
-var debug = require("debug")("express-locallibrary-tutorial:server");
 var http = require("http");
+const debug = require("debug")("author");
+
+// Display Author update form on GET.
+exports.author_update_get = async (req, res, next) => {
+  const author = await Author.findById(req.params.id).exec();
+  if (author === null) {
+    // No results.
+    debug(`id not found on update: ${req.params.id}`);
+    const err = new Error("Author not found");
+    err.status = 404;
+    return next(err);
+  }
+
+  res.render("author_form", { title: "Update Author", author });
+};
+
 
 /**
  * Get port from environment and store in Express.

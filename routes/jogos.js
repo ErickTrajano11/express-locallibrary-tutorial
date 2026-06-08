@@ -30,6 +30,11 @@ router.post(
 );
 
 router.get(
+  "/empresas",
+  gameController.company_list
+);
+
+router.get(
   "/empresas/nova",
   gameController.company_create_get
 );
@@ -40,6 +45,11 @@ router.post(
 );
 
 router.get(
+  "/empresas/:id",
+  gameController.company_detail
+);
+
+router.get(
   "/empresas/:id/editar",
   gameController.company_update_get
 );
@@ -47,6 +57,11 @@ router.get(
 router.post(
   "/empresas/:id/editar",
   gameController.company_update_post
+);
+
+router.get(
+  "/:id",
+  gameController.game_detail
 );
 
 module.exports = router;
