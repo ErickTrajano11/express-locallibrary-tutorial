@@ -112,6 +112,12 @@ function normalizePort(val) {
   return false;
 }
 
+async function connectMongoose() {
+  console.log("Conectando ao MongoDB...");
+  await mongoose.connect(mongoDB);
+  console.log("MongoDB conectado!");
+}
+
 console.log(process.env.MONGODB_URI);
 console.log("PORT =", process.env.PORT);
 console.log("Mongo URI definida?", !!process.env.MONGODB_URI);
