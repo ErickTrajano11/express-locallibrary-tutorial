@@ -8,20 +8,31 @@ html(lang='en')
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js", integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q", crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    nav(class='navbar navbar-expand-lg navbar-light bg-light mb-3')
-      div(class='container-fluid')
-        a(class='navbar-brand', href='/') Locallibrary
-        button(class='navbar-toggler', type='button', data-bs-toggle='collapse', data-bs-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
-          span(class='navbar-toggler-icon')
-        div(class='collapse navbar-collapse', id='navbarNav')
-          ul(class='navbar-nav')
-            li(class='nav-item')
-              a(class='nav-link', href='/jogos') Jogos
-            li(class='nav-item')
-              a(class='nav-link', href='/jogos/empresas') Empresas
-            li(class='nav-item')
-              a(class='nav-link', href='/catalog') Catálogo
     div(class='container-fluid')
       div(class='row')
-        div(class='col-12')
+        div(class='col-sm-2')
+          block sidebar
+            ul(class='sidebar-nav')
+              li
+                a(href='/catalog') Home
+              li
+                a(href='/catalog/books') All books
+              li
+                a(href='/catalog/authors') All authors
+              li
+                a(href='/catalog/genres') All genres
+              li
+                a(href='/catalog/bookinstances') All book-instances
+              li
+                hr
+              li
+                a(href='/catalog/author/create') Create new author
+              li
+                a(href='/catalog/genre/create') Create new genre
+              li
+                a(href='/catalog/book/create') Create new book
+              li
+                a(href='/catalog/bookinstance/create') Create new book instance (copy)
+
+        div(class='col-sm-10')
           block content
