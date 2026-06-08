@@ -12,6 +12,22 @@ exports.author_list = async (req, res, next) => {
   });
 };
 
+// Display Author update form on GET.
+exports.author_update_get = async (req, res, next) => {
+  const author = await Author.findById(req.params.id).exec();
+  if (author === null) {
+    // No results.
+    debug(`id not found on update: ${req.params.id}`);
+    const err = new Error("Author not found");
+    err.status = 404;
+    return next(err);
+  }
+
+  res.render("author_form", { title: "Update Author", author });
+};
+
+
+
 // Display detail page for a specific Author.
 exports.author_detail = async (req, res, next) => {
   // Get details of author and all their books (in parallel)
